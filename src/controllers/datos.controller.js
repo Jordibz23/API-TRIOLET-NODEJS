@@ -45,7 +45,7 @@ export const area_mas_incidencia = async (req, res) => {
 }
 
 export const listado_tabla = async (reg, res) => {
-    const [result] = await pool.query("SELECT t.id_incidencias as id , a.nom_area as area, ti.nom_tipo_incidencia as t_inci,DATE_FORMAT(t.fecha_incidencia, '%Y-%m-%d') as f_inci, t.estado_incidencia as e_inci , t.id_encargado as enc, DATE_FORMAT(t.fecha_solucion, '%Y-%m-%d') as f_sol, t.tiempo_resolucion as t_sol , t.descripcion_incidencia as detalle, u.nom_usuario as usua FROM `tb_incidencias` t inner join tb_usuarios u on u.id_usuario = t.id_usuario inner join tb_tipo_incidencia ti on ti.id_tipo_incidencia = t.id_tipo_incidencia inner join tb_area a on a.id_area = t.id_area;")
+    const [result] = await pool.query("SELECT t.id_incidencias as id , a.nom_area as area, ti.nom_tipo_incidencia as t_inci,DATE_FORMAT(t.fecha_incidencia, '%Y-%m-%d') as f_inci, t.estado_incidencia as e_inci , t.id_encargado as enc, DATE_FORMAT(t.fecha_solucion, '%Y-%m-%d') as f_sol, t.tiempo_resolucion as t_sol , t.descripcion_incidencia as detalle, u.nom_usuario as usua FROM `tb_incidencias` t inner join tb_usuarios u on u.id_usuario = t.id_usuario inner join tb_tipo_incidencia ti on ti.id_tipo_incidencia = t.id_tipo_incidencia inner join tb_area a on a.id_area = t.id_area ORDER by t.id_incidencias;")
     res.send(result)
 }
 
