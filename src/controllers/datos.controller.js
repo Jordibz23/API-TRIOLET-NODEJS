@@ -23,7 +23,7 @@ export const cantidad_incidencia = async (req, res) => {
 export const insert_incidencia = async (req, res) => {
     try {
         const { id_usuario, id_area, id_tipo_incidencia, descripcion_incidencia, fecha_incidencia, estado_incidencia } = req.body
-        const [rows] = await pool.query('INSERT INTO matricula( id_usuario, id_area, id_tipo_incidencia, descripcion_incidencia, fecha_incidencia, estado_incidencia) values(?,?,?,?,?,?)',
+        const [rows] = await pool.query('INSERT INTO tb_incidencias( id_usuario, id_area, id_tipo_incidencia, descripcion_incidencia, fecha_incidencia, estado_incidencia) values(?,?,?,?,?,?)',
             [id_usuario, id_area, id_tipo_incidencia, descripcion_incidencia, fecha_incidencia, estado_incidencia])
         res.send({ message: 'Incidencia guardada correctamente' })
     } catch (error) {
