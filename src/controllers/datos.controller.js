@@ -27,7 +27,7 @@ export const insert_incidencia = async (req, res) => {
             [id_usuario, id_area, id_tipo_incidencia, descripcion_incidencia, fecha_incidencia, estado_incidencia])
         res.send({ message: 'Incidencia guardada correctamente' })
     } catch (error) {
-        return res.send({ message: error })
+        return res.send({ message: 'Ocurrio un error al guardar el incidente, verifique los campos' })
     }
 
 
